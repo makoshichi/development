@@ -22,7 +22,6 @@ namespace MovieDbApp.View
         private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             Navigation.PushAsync(new MoviesPage());
-            //throw new NotImplementedException();
         }
     }
 }
