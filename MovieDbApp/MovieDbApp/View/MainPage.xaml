@@ -6,11 +6,11 @@
     <MasterDetailPage.Master>
         <local:MasterPage x:Name="masterPage" />
     </MasterDetailPage.Master>
-    <!--<MasterDetailPage.Detail>
+    <MasterDetailPage.Detail>
         <NavigationPage>
             <x:Arguments>
-                <local:MoviesPage />
+                <local:MovieFiltersPage />
             </x:Arguments>
         </NavigationPage>
-    </MasterDetailPage.Detail>-->
+    </MasterDetailPage.Detail>
 </MasterDetailPage>

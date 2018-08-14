@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MovieDbApp.Model;
+using MovieDbApp.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +14,20 @@ namespace MovieDbApp.View
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class MovieDetailsPage : ContentPage
 	{
-		public MovieDetailsPage ()
+		public MovieDetailsPage (Movie movie)
 		{
-			InitializeComponent ();
+			InitializeComponent();
+
+            var pageModel = new MovieDetailsPageModel()
+            {
+                GenreIds = movie.GenreIds,
+                Overview = movie.Overview,
+                PosterPath = movie.PosterPath,
+                ReleaseDate = movie.ReleaseDate,
+                Title = movie.Title
+            };
+
+            BindingContext = pageModel;
 		}
 	}
 }

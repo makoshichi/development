@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MovieDbApp.Data.DTO
+namespace MovieDbApp.Service.DTO
 {
     public class UpcomingDto
     {
@@ -31,13 +31,15 @@ namespace MovieDbApp.Data.DTO
 
             public static explicit operator Movie(Result dto)
             {
-                var movie = new Movie();
-                movie.Id = dto.id;
-                movie.Title = dto.title;
-                movie.PosterPath = dto.poster_path;
-                movie.ReleaseDate = dto.release_date;
-                movie.GenreIds = dto.genre_ids;
-                movie.Overview = dto.overview;
+                var movie = new Movie
+                {
+                    Id = dto.id,
+                    Title = dto.title,
+                    PosterPath = dto.poster_path,
+                    ReleaseDate = dto.release_date,
+                    GenreIds = dto.genre_ids,
+                    Overview = dto.overview
+                };
 
                 return movie;
             }

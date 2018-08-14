@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System.Diagnostics;
-using MovieDbApp.Data.DTO;
+using MovieDbApp.Service.DTO;
 
-namespace MovieDbApp.Data
+namespace MovieDbApp.Service
 {
     public class RestService
     {

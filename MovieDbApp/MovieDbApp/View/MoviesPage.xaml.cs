@@ -1,4 +1,4 @@
-﻿using MovieDbApp.Data;
+﻿using MovieDbApp.Service;
 using MovieDbApp.Model;
 using System.Linq;
 using Xamarin.Forms;
@@ -14,7 +14,6 @@ namespace MovieDbApp.View
 		public MoviesPage()
 		{
 			InitializeComponent();
-            //listView.ItemsSource = new List<string>() { "Avengers Infinity War" };
             listView.ItemTapped += ListView_ItemTapped;
 		}
 
@@ -35,7 +34,7 @@ namespace MovieDbApp.View
 
         private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            Navigation.PushAsync(new MovieDetailsPage());
+            Navigation.PushAsync(new MovieDetailsPage((Movie)e.Item));
         }
     }
 }

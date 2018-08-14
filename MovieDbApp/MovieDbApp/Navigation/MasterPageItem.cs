@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MovieDbApp
+namespace MovieDbApp.Navigation
 {
     public class MasterPageItem
     {

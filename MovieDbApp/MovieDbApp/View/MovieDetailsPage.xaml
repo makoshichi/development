@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MovieDbApp.View.MovieDetailsPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Details about Avengers Infinity War"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout HorizontalOptions="StartAndExpand">
+            <Label Text="{Binding Title}"/>
+            <Label Text="{Binding ReleaseDate}"/>
+            <Label Text="{Binding Overview}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

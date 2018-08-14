@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using MovieDbApp.Navigation;
+using System.Collections.Generic;
 using Xamarin.Forms;
 
 namespace MovieDbApp.View
