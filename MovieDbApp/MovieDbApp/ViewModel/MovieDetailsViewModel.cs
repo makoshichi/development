@@ -36,7 +36,7 @@ namespace MovieDbApp.ViewModel
         {
             genreIds = movie.GenreIds;
             Overview = movie.Overview;
-            PosterPath = Constants.POSTER_BASE_PATH+movie.PosterPath;
+            PosterPath = $"{Constants.POSTER_BASE_PATH}{movie.PosterPath}";
             ReleaseDate = movie.ReleaseDate;
             Title = movie.Title;
         }
