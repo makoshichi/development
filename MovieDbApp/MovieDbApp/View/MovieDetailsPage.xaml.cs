@@ -15,7 +15,6 @@ namespace MovieDbApp.View
 		{
 			InitializeComponent();
             viewModel = new MovieDetailsViewModel(movie);
-            //viewModel.SetDisplayGenre();
             BindingContext = viewModel;
         }
 

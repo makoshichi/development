@@ -3,17 +3,20 @@ using MovieDbApp.Model;
 using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using MovieDbApp.ViewModel;
 
 namespace MovieDbApp.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class MoviesPage : ContentPage
 	{
-        private int page = 1;
+        private MoviesViewModel viewModel;
 
 		public MoviesPage()
 		{
 			InitializeComponent();
+            viewModel = new MoviesViewModel();
+            BindingContext = viewModel;
             listView.ItemTapped += ListView_ItemTapped;
 		}
 
@@ -21,15 +24,12 @@ namespace MovieDbApp.View
         {
             base.OnAppearing();
 
-            var upcoming = await new RestService().GetUpcomingMovies(page);
+            var upcoming = await viewModel.GetUpcomingMovies();
 
             if (upcoming == null)
-            {
                 await DisplayAlert("Communication Error", "An error has occurred while trying to communicate with the REST API", "OK");
-                return;
-            }
-
-            listView.ItemsSource = upcoming.results.Select(r => (Movie)r).ToList();
+            else
+                listView.ItemsSource = upcoming;
         }
 
         private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)

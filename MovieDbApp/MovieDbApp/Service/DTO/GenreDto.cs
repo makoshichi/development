@@ -1,27 +1,27 @@
-﻿using System;
+﻿using MovieDbApp.Model;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace MovieDbApp.Service.DTO
 {
-    // I decided in favor of DTOs given that the JSON response from the API comes flattened as "name":value; it also allows me to get rid of snake_casing
     public class GenreDto
     {
-        public List<Genre> genres;
+        public List<GenreResult> genres;
+    }
+    
+    public class GenreResult
+    {
+        public int id { get; set; }
+        public string name { get; set; }
 
-        public class Genre
+        public static explicit operator Genre(GenreResult genre)
         {
-            public int id { get; set; }
-            public string name { get; set; }
-
-            public static explicit operator Model.Genre(Genre genre)
+            return new Genre
             {
-                return new Model.Genre
-                {
-                    Id = genre.id,
-                    Name = genre.name
-                };
-            }
+                Id = genre.id,
+                Name = genre.name
+            };
         }
     }
 }

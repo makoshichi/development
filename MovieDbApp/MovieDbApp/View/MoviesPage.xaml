@@ -1,19 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MovieDbApp.UI"
              x:Class="MovieDbApp.View.MoviesPage">
     <ContentPage.Content>
-        <StackLayout>
-            <ListView x:Name="listView">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5000"/>
+            </Grid.RowDefinitions>
+
+            <ListView x:Name="listView" Grid.Row="0">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell
-                            Text="{Binding Title}"
-                            Detail="{Binding ReleaseDate}"
-                        />
+                        <ViewCell>
+                            <StackLayout HorizontalOptions="Center">
+                                <Label Text="{Binding Title}"/>
+                                <Image Source="{Binding PosterPath}" />
+                                <Label Text="{Binding ReleaseDate}" />
+                                <Label Text="{Binding DisplayGenre}" />
+                            </StackLayout>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
+    
+<!--<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MovieDbApp.View.MoviesPage">
+    <ContentPage.Content>
+        <ListView x:Name="listView" >
+            <ListView.ItemTemplate>
+                    <DataTemplate>
+                    <ImageCell
+                            Text="{Binding Title}"
+                            ImageSource="{Binding PosterPath}"
+                            Detail="{Binding ReleaseDate}" />
+                </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+    </ContentPage.Content>
+</ContentPage>-->        

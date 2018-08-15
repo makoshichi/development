@@ -38,7 +38,7 @@ namespace MovieDbApp.Service
             }
             catch (Exception e)
             {
-                Debug.WriteLine(e.Message); // In a real-world scenario I probably would create a logger, but I think that is way beyond the scope of this challenge
+                Debug.WriteLine(e.Message);
                 return null;
             }
 
