@@ -12,5 +12,6 @@ namespace MovieDbApp.Model
         public string Overview { get; set; }
         public string ReleaseDate { get; set; }
         public List<int> GenreIds { get; set; }
+        public string DisplayGenre { get; set; }
     }
 }

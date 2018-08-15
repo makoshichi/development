@@ -5,7 +5,7 @@
              Title="Movies">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="listView"/>
+            <ListView x:Name="listView" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

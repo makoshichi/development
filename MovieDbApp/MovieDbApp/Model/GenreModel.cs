@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MovieDbApp.Service.DTO
+namespace MovieDbApp.Service
 {
-    public class GenreDto
+    public class GenreModel
     {
         public List<GenreResult> genres;
     }

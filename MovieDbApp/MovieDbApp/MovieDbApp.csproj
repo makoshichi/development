@@ -10,8 +10,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="View\MoviesPage.xaml.cs">
-      <DependentUpon>MoviesPage.xaml</DependentUpon>
+    <Compile Update="View\UpcomingMoviesPage.xaml.cs">
+      <DependentUpon>UpcomingMoviesPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\MovieFiltersPage.xaml.cs">
       <DependentUpon>MovieFiltersPage.xaml</DependentUpon>
@@ -25,7 +25,10 @@
     <EmbeddedResource Update="View\MovieDetailsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="View\MoviesPage.xaml">
+    <EmbeddedResource Update="View\StartPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\UpcomingMoviesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="View\MovieFiltersPage.xaml">

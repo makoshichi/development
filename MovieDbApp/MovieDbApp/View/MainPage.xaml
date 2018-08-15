@@ -9,7 +9,7 @@
     <MasterDetailPage.Detail>
         <NavigationPage>
             <x:Arguments>
-                <local:MovieFiltersPage />
+                <local:StartPage />
             </x:Arguments>
         </NavigationPage>
     </MasterDetailPage.Detail>

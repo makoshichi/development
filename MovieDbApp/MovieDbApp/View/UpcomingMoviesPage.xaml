@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MovieDbApp.View.MoviesPage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <ListView x:Name="listView" Grid.Row="0" HasUnevenRows="True" SeparatorColor="DarkBlue">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand" Padding="5,5,5,5">
+                                <Label Text="{Binding Title}"
+                                       TextColor="MidnightBlue"
+                                       FontSize="Medium"/>
+                                <Image Source="{Binding PosterPath}" HorizontalOptions="Start" />
+                                <Label Text="{Binding ReleaseDate}" 
+                                       TextColor="DimGray"
+                                       FontSize="Micro"/>
+                                <Label Text="{Binding DisplayGenre}" 
+                                       TextColor="MediumSlateBlue"
+                                       FontSize="Micro"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>      

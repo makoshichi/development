@@ -10,12 +10,12 @@ namespace MovieDbApp.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class MoviesPage : ContentPage
 	{
-        private MoviesViewModel viewModel;
+        private UpcomingMoviesViewModel viewModel;
 
 		public MoviesPage()
 		{
 			InitializeComponent();
-            viewModel = new MoviesViewModel();
+            viewModel = new UpcomingMoviesViewModel();
             BindingContext = viewModel;
             listView.ItemTapped += ListView_ItemTapped;
 		}

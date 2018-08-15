@@ -2,12 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using System.Diagnostics;
-using MovieDbApp.Service.DTO;
 using System.Linq;
 
 namespace MovieDbApp.Service
@@ -21,9 +18,9 @@ namespace MovieDbApp.Service
             client = new HttpClient();
         }
 
-        public async Task<UpcomingDto> GetUpcomingMovies(int page)
+        public async Task<UpcomingModel> GetUpcomingMovies(int page)
         {
-            var result = new UpcomingDto();
+            var result = new UpcomingModel();
 
             var uri = new Uri($"https://api.themoviedb.org/3/movie/upcoming?api_key=1f54bd990f1cdfb230adb312546d765d&page={page}");
 
@@ -33,7 +30,7 @@ namespace MovieDbApp.Service
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    result = JsonConvert.DeserializeObject<UpcomingDto>(content);
+                    result = JsonConvert.DeserializeObject<UpcomingModel>(content);
                 }
             }
             catch (Exception e)
@@ -47,7 +44,7 @@ namespace MovieDbApp.Service
 
         public async Task<List<Genre>> GetGenres()
         {
-            var result = new GenreDto();
+            var result = new GenreModel();
             var uri = new Uri($"https://api.themoviedb.org/3/genre/movie/list?api_key=1f54bd990f1cdfb230adb312546d765d");
 
             try
@@ -56,7 +53,7 @@ namespace MovieDbApp.Service
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    result = JsonConvert.DeserializeObject<GenreDto>(content);
+                    result = JsonConvert.DeserializeObject<GenreModel>(content);
                 }
             }
             catch(Exception e)

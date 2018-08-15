@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MovieDbApp.Service.DTO
+namespace MovieDbApp.Service
 {
-    public class UpcomingDto
+    public class UpcomingModel
     {
         public List<UpcomingResult> results { get; set; }
         public int page { get; set; }
