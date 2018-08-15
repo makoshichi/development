@@ -8,14 +8,13 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System.Diagnostics;
 using MovieDbApp.Service.DTO;
+using System.Linq;
 
 namespace MovieDbApp.Service
 {
     public class RestService
     {
         HttpClient client;
-
-        //public UpcomingDto Result { get; private set; }
 
         public RestService()
         {
@@ -39,12 +38,34 @@ namespace MovieDbApp.Service
             }
             catch (Exception e)
             {
-                // Delegating exception treatment to the View
-                Debug.WriteLine(e.Message);
+                Debug.WriteLine(e.Message); // In a real-world scenario I probably would create a logger, but I think that is way beyond the scope of this challenge
                 return null;
             }
 
             return result;
+        }
+
+        public async Task<List<Genre>> GetGenres()
+        {
+            var result = new GenreDto();
+            var uri = new Uri($"https://api.themoviedb.org/3/genre/movie/list?api_key=1f54bd990f1cdfb230adb312546d765d");
+
+            try
+            {
+                var response = await client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    result = JsonConvert.DeserializeObject<GenreDto>(content);
+                }
+            }
+            catch(Exception e)
+            {
+                Debug.WriteLine(e.Message);
+                return null;
+            }
+
+            return result.genres.Select(x => (Genre)x).ToList();
         }
     }
 }

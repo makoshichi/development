@@ -5,6 +5,8 @@
     <ContentPage.Content>
         <StackLayout HorizontalOptions="StartAndExpand">
             <Label Text="{Binding Title}"/>
+            <Image Source="{Binding PosterPath}"/>
+            <Label Text="{Binding DisplayGenre}"/>
             <Label Text="{Binding ReleaseDate}"/>
             <Label Text="{Binding Overview}" />
         </StackLayout>

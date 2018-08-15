@@ -1,33 +1,28 @@
 ﻿using MovieDbApp.Model;
 using MovieDbApp.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace MovieDbApp.View
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class MovieDetailsPage : ContentPage
 	{
+        private MovieDetailsViewModel viewModel;
+
 		public MovieDetailsPage (Movie movie)
 		{
 			InitializeComponent();
+            viewModel = new MovieDetailsViewModel(movie);
+            //viewModel.SetDisplayGenre();
+            BindingContext = viewModel;
+        }
 
-            var pageModel = new MovieDetailsPageModel()
-            {
-                GenreIds = movie.GenreIds,
-                Overview = movie.Overview,
-                PosterPath = movie.PosterPath,
-                ReleaseDate = movie.ReleaseDate,
-                Title = movie.Title
-            };
-
-            BindingContext = pageModel;
-		}
-	}
+        protected async override void OnAppearing()
+        {
+            await Task.Run(() => viewModel.SetDisplayGenre());
+            base.OnAppearing();
+        }
+    }
 }

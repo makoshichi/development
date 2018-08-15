@@ -5,6 +5,7 @@ using System.Text;
 
 namespace MovieDbApp.Service.DTO
 {
+    // I decided in favor of DTOs given that the JSON response from the API comes flattened as "name":value; it also allows me to get rid of snake_casing
     public class UpcomingDto
     {
         public List<Result> results { get; set; }
