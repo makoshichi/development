@@ -13,6 +13,8 @@ namespace MovieDbApp.ViewModel
     {
         private int page = 1;
 
+        public string Title { get { return "Upcoming Movies"; } }
+
         public async Task<List<Movie>> GetUpcomingMovies()
         {
             List<Movie> movies = new List<Movie>();

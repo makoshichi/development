@@ -2,8 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MovieDbApp.View.MasterPage"
-			 Padding="0,0,0,0"
-			 Icon="hamburger.png"
+             Padding="0,40,0,0"
+             Icon="hamburger.png"
 			 Title="The Movie Database">
     <StackLayout HorizontalOptions="StartAndExpand">
         <ListView x:Name="ListView" x:FieldModifier="public">
