@@ -4,16 +4,16 @@
              x:Class="MovieDbApp.View.UpcomingMoviesPage"
              Title="{Binding Title}">
     <ContentPage.Content>
-        <Grid VerticalOptions="FillAndExpand">
+        <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <ListView x:Name="listView" Grid.Row="0" HasUnevenRows="True" SeparatorColor="DarkBlue" VerticalOptions="FillAndExpand">
+            <ListView x:Name="listView" Grid.Row="0" HasUnevenRows="True" SeparatorColor="DarkBlue">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand" Padding="5,5,5,5">
+                            <StackLayout HorizontalOptions="StartAndExpand" Padding="5,5,5,5">
                                 <Label Text="{Binding Title}"
                                        TextColor="MidnightBlue"
                                        FontSize="Medium"/>

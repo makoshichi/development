@@ -38,7 +38,7 @@ namespace MovieDbApp.Service
             return result.genres.Select(x => (Genre)x).ToList();
         }
 
-        private async Task<T> GetData<T>(Uri uri) where T : IJsonModel
+        private async Task<T> GetData<T>(Uri uri) where T : IJsonModel // Marker interface usage
         {
             var result = Activator.CreateInstance<T>();
             try
