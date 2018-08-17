@@ -1,4 +1,4 @@
-﻿using MovieDbApp.Category;
+﻿using MovieDbApp.SortingConfig;
 using MovieDbApp.View;
 using System;
 using System.Collections;
@@ -18,13 +18,12 @@ namespace MovieDbApp.ViewModel
         public SortingCategoryViewModel(INavigation navigation)
         {
             this.navigation = navigation;
-            Categories = new List<BaseCategory>() { new UpcomingMovies() };
+            Categories = new List<BaseCategory>() { new UpcomingMovies() }; // Figure out a better way to configure categories...
         }
 
         public void Route(BaseCategory category)
         {
-            var pageType = category.PageType;
-            var page = Activator.CreateInstance(pageType);
+            var page = Activator.CreateInstance(category.PageType);
             navigation.PushAsync((Page)page);
         }
     }

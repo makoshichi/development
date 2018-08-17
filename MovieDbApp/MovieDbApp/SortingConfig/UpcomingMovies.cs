@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MovieDbApp.Category
+namespace MovieDbApp.SortingConfig
 {
     public class UpcomingMovies : BaseCategory
     {

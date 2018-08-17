@@ -1,4 +1,4 @@
-﻿using MovieDbApp.Category;
+﻿using MovieDbApp.SortingConfig;
 using MovieDbApp.ViewModel;
 using System;
 using System.Collections.Generic;

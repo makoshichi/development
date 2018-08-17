@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MovieDbApp.Category
+namespace MovieDbApp.SortingConfig
 {
     public abstract class BaseCategory
     {
