@@ -1,9 +1,8 @@
 ﻿using MovieDbApp.Service;
-using MovieDbApp.Model;
-using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using MovieDbApp.ViewModel;
+using MovieDbApp.Entities;
 
 namespace MovieDbApp.View
 {

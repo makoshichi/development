@@ -5,7 +5,7 @@ namespace MovieDbApp.SortingConfig
 {
     public class TopRated : BaseCategory
     {
-        public override string Name => "Top Rated";
+        public override string DisplayName => "Top Rated";
 
         public override Type PageType => typeof(PageNotFound);
     }
