@@ -49,13 +49,11 @@ namespace MovieDbApp.ViewModel
         public async Task<bool> LoadMoreMovies(Movie e)
         {
 
-            if (e.Position != loadStartIndex)
+            if (e.Position < loadStartIndex)
                 return true;
 
             loadStartIndex = scrollingThreshold + Movies.Count;
             page++;
-
-            // Add stop condition when all items have been loaded
 
             // Loading Popup (signaled task) -> do it the old-fashioned way, then try async/await
 
