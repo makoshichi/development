@@ -9,13 +9,11 @@ using System.Linq;
 
 namespace MovieDbApp.Service
 {
-    // Developer note: I took a look at the whole API trying to find ideas on how to make the REST service more scalable but it probably would amount to much more work than it's worth right now,
-    // so I decided in favor of creating a very minimal service fit for simple constructor injection
-    public class RestService : IRestService
+    public class MovieService : IRestService
     {
         private HttpClient client;
 
-        public RestService()
+        public MovieService()
         {
             client = new HttpClient();
         }

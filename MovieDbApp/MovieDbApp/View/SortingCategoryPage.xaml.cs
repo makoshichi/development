@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MovieDbApp.Category;
+using MovieDbApp.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,18 +12,18 @@ using Xamarin.Forms.Xaml;
 namespace MovieDbApp.View
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class MovieFiltersPage : ContentPage
+	public partial class SortingCategoryPage : ContentPage
 	{
-		public MovieFiltersPage()
+		public SortingCategoryPage()
 		{
 			InitializeComponent();
-            listView.ItemsSource = new List<string>() { "Upcoming" };
+            BindingContext = new SortingCategoryViewModel(Navigation);
             listView.ItemTapped += ListView_ItemTapped;
 		}
 
         private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            Navigation.PushAsync(new UpcomingMoviesPage());
+            ((SortingCategoryViewModel)BindingContext).Route((BaseCategory)e.Item);
         }
     }
 }

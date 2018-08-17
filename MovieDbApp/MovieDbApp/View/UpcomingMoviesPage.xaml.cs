@@ -15,7 +15,7 @@ namespace MovieDbApp.View
 		public UpcomingMoviesPage()
 		{
 			InitializeComponent();
-            viewModel = new UpcomingMoviesViewModel(new RestService());
+            viewModel = new UpcomingMoviesViewModel(new MovieService());
             BindingContext = viewModel;
             listView.ItemTapped += ListView_ItemTapped;
 		}

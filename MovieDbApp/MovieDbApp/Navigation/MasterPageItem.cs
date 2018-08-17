@@ -11,5 +11,7 @@ namespace MovieDbApp.Navigation
         public string IconSource { get; set; }
 
         public Type TargetType { get; set; }
+
+        //public Type CategoryType { get; set; }
     }
 }

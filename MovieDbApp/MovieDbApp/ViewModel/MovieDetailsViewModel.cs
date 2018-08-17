@@ -30,7 +30,7 @@ namespace MovieDbApp.ViewModel
             set
             {
                 _displayGenre = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(DisplayGenre)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(DisplayGenre))); // Não precisa maaaaais!!!! (Eu acho...)
             }
         }
 

@@ -31,7 +31,8 @@ namespace MovieDbApp.ViewModel
             if (upcoming == null)
                 return null;
 
-            foreach(var result in upcoming.results)
+            // Move it to movie service?
+            foreach (var result in upcoming.results) 
             {
                 var movie = (Movie)result;
                 movie.DisplayGenre = GenreProcessor.ConvertToDisplayGenre(movie.GenreIds, allGenres);

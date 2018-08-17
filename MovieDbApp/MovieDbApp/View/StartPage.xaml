@@ -3,14 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MovieDbApp.View.StartPage">
     <ContentPage.Content>
-        <StackLayout VerticalOptions="Center" HorizontalOptions="Center" Padding="0,0,0,70">
-            <Label Text="The Movie Database"
+        <StackLayout Padding="0,70,0,0">
+            <Image VerticalOptions="Center" HorizontalOptions="Center" 
+                   Source="tmdb.png"/>            
+            <Label VerticalOptions="Center" HorizontalOptions="Center" 
+                   Text="The Movie Database"
                    TextColor="MidnightBlue"
                    FontSize="Medium"/>
-            <Label Text="Mobile Edition"
+            <Label VerticalOptions="Center" HorizontalOptions="Center" 
+                   Text="Mobile Edition"
                    TextColor="DimGray"
-                   FontSize="Small"
-                   HorizontalOptions="Center"/>
+                   FontSize="Small"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
