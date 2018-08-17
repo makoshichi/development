@@ -9,23 +9,21 @@ namespace MovieDbApp.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class UpcomingMoviesPage : ContentPage
 	{
-        private UpcomingMoviesViewModel viewModel;
 
 		public UpcomingMoviesPage()
 		{
 			InitializeComponent();
-            viewModel = new UpcomingMoviesViewModel(new MovieService());
-            BindingContext = viewModel;
+            BindingContext = new UpcomingMoviesViewModel(new MovieService());
             listView.ItemTapped += ListView_ItemTapped;
             listView.ItemAppearing += ListView_ItemAppearing;
 		}
 
-        // Not my best work in display here
         protected async override void OnAppearing()
         {
             base.OnAppearing();
 
-            var resultOk = await viewModel.LoadUpcomingMovies();
+            var resultOk = await ((UpcomingMoviesViewModel)BindingContext).LoadUpcomingMovies();
+
             if (!resultOk)
                 await DisplayAlert("Communication Error", "An error has occurred while trying to communicate with the REST API", "OK");
         }
@@ -37,7 +35,6 @@ namespace MovieDbApp.View
 
         private async void ListView_ItemAppearing(object sender, ItemVisibilityEventArgs e)
         {
-            
             var resultOk = await ((UpcomingMoviesViewModel)BindingContext).LoadMoreMovies((Movie)e.Item);
             if (!resultOk)
                 await DisplayAlert("Communication Error", "An error has occurred while trying to communicate with the REST API", "OK");

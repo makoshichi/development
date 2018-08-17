@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using System.Diagnostics;
 using System.Linq;
 using MovieDbApp.Entities;
+using MovieDbApp.Service.Interfaces;
 
 namespace MovieDbApp.Service
 {
@@ -14,18 +15,20 @@ namespace MovieDbApp.Service
     {
         private HttpClient client;
 
+        public AsyncImageService ImageService { get => new AsyncImageService(); }
+
         public MovieService()
         {
             client = new HttpClient();
         }
 
-        public async Task<UpcomingModel> GetUpcomingMovies(int page)
+        public async Task<List<Movie>> GetUpcomingMovies(int page)
         {
             var route = "/movie/upcoming";
             var uri = new Uri($"{Constants.BASE_URL}{route}?api_key={Constants.API_KEY}&page={page}");
             var result = await GetData<UpcomingModel>(uri);
 
-            return result;
+            return result.results.Select(x => (Movie)x).ToList();
         }
 
         public async Task<List<Genre>> GetGenres()
