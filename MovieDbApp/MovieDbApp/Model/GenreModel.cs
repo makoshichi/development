@@ -1,7 +1,6 @@
-﻿using MovieDbApp.Model;
-using System;
+﻿using MovieDbApp.Entities;
+using MovieDbApp.Model;
 using System.Collections.Generic;
-using System.Text;
 
 namespace MovieDbApp.Service
 {

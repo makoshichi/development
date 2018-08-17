@@ -1,12 +1,6 @@
-﻿using MovieDbApp.Helper;
-using MovieDbApp.Model;
-using MovieDbApp.Service;
-using System;
+﻿using MovieDbApp.Entities;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MovieDbApp.ViewModel
 {

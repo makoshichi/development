@@ -18,13 +18,22 @@ namespace MovieDbApp.ViewModel
         public SortingCategoryViewModel(INavigation navigation)
         {
             this.navigation = navigation;
-            Categories = new List<BaseCategory>() { new UpcomingMovies() }; // Figure out a better way to configure categories...
+            CreateCategories();
         }
 
         public void Route(BaseCategory category)
         {
             var page = Activator.CreateInstance(category.PageType);
             navigation.PushAsync((Page)page);
+        }
+
+        private void CreateCategories()
+        {
+            Categories = new List<BaseCategory>()
+            {
+                new UpcomingMovies(),
+                new TopRated()
+            };
         }
     }
 }

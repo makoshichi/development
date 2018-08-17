@@ -1,6 +1,5 @@
-﻿using MovieDbApp.Model;
+﻿using MovieDbApp.Entities;
 using MovieDbApp.ViewModel;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

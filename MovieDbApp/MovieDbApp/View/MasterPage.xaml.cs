@@ -16,18 +16,12 @@ namespace MovieDbApp.View
                 IconSource = "contacts.png", // File not found
                 TargetType = typeof(SortingCategoryPage)
             });
-            //masterPageItems.Add(new MasterPageItem
-            //{
-            //    Title = "TV",
-            //    IconSource = "todo.png",
-            //    TargetType = typeof(TodoListPage)
-            //});
-            //masterPageItems.Add(new MasterPageItem
-            //{
-            //    Title = "About",
-            //    IconSource = "reminders.png",
-            //    TargetType = typeof(ReminderPage)
-            //});
+            masterPageItems.Add(new MasterPageItem
+            {
+                Title = "TV",
+                IconSource = "todo.png", // File not found
+                TargetType = typeof(PageNotFound)
+            });
 
             ListView.ItemsSource = masterPageItems;
         }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Diagnostics;
 using System.Linq;
+using MovieDbApp.Entities;
 
 namespace MovieDbApp.Service
 {

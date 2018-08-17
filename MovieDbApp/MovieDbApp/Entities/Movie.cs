@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MovieDbApp.Model
+namespace MovieDbApp.Entities
 {
     public class Movie
     {

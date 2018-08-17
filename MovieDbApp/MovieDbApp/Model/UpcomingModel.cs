@@ -1,7 +1,5 @@
-﻿using MovieDbApp.Model;
-using System;
+﻿using MovieDbApp.Entities;
 using System.Collections.Generic;
-using System.Text;
 
 namespace MovieDbApp.Model
 {
