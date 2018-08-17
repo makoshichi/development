@@ -17,13 +17,13 @@ namespace MovieDbApp.View
 		public MoviesSortingPage()
 		{
 			InitializeComponent();
-            BindingContext = new ViewModel.MoviesSortingPage(Navigation);
+            BindingContext = new MovieSortingViewModel(Navigation);
             listView.ItemTapped += ListView_ItemTapped;
 		}
 
         private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            ((ViewModel.MoviesSortingPage)BindingContext).Navigate((BaseCategory)e.Item);
+            ((MovieSortingViewModel)BindingContext).Navigate((BaseCategory)e.Item);
         }
     }
 }

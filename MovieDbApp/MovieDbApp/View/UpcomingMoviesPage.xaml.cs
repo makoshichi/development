@@ -17,6 +17,7 @@ namespace MovieDbApp.View
             viewModel = new UpcomingMoviesViewModel(new MovieService());
             BindingContext = viewModel;
             listView.ItemTapped += ListView_ItemTapped;
+            listView.ItemAppearing += ListView_ItemAppearing;
 		}
 
         // Not my best work in display here
@@ -24,17 +25,22 @@ namespace MovieDbApp.View
         {
             base.OnAppearing();
 
-            var upcoming = await viewModel.GetUpcomingMovies();
-
-            if (upcoming == null)
+            var resultOk = await viewModel.LoadUpcomingMovies();
+            if (!resultOk)
                 await DisplayAlert("Communication Error", "An error has occurred while trying to communicate with the REST API", "OK");
-            else
-                listView.ItemsSource = upcoming;
         }
 
         private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             Navigation.PushAsync(new MovieDetailsPage((Movie)e.Item));
+        }
+
+        private async void ListView_ItemAppearing(object sender, ItemVisibilityEventArgs e)
+        {
+            
+            var resultOk = await ((UpcomingMoviesViewModel)BindingContext).LoadMoreMovies((Movie)e.Item);
+            if (!resultOk)
+                await DisplayAlert("Communication Error", "An error has occurred while trying to communicate with the REST API", "OK");
         }
     }
 }

@@ -9,7 +9,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <ListView x:Name="listView" Grid.Row="0" HasUnevenRows="True" SeparatorColor="DarkBlue">
+            <ListView x:Name="listView" Grid.Row="0" HasUnevenRows="True" SeparatorColor="DarkBlue" ItemsSource="{Binding Movies}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

@@ -5,13 +5,13 @@ using Xamarin.Forms;
 
 namespace MovieDbApp.ViewModel
 {
-    public class MoviesSortingPage
+    public class MovieSortingViewModel
     {
         private INavigation navigation;
 
         public List<BaseCategory> Categories { get; private set; }
 
-        public MoviesSortingPage(INavigation navigation)
+        public MovieSortingViewModel(INavigation navigation)
         {
             this.navigation = navigation;
             CreateCategories();
