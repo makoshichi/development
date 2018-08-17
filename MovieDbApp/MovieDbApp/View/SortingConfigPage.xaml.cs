@@ -12,18 +12,18 @@ using Xamarin.Forms.Xaml;
 namespace MovieDbApp.View
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class SortingCategoryPage : ContentPage
+	public partial class SortingConfigPage : ContentPage
 	{
-		public SortingCategoryPage()
+		public SortingConfigPage()
 		{
 			InitializeComponent();
-            BindingContext = new SortingCategoryViewModel(Navigation);
+            BindingContext = new SortingConfigViewModel(Navigation);
             listView.ItemTapped += ListView_ItemTapped;
 		}
 
         private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            ((SortingCategoryViewModel)BindingContext).Route((BaseCategory)e.Item);
+            ((SortingConfigViewModel)BindingContext).Navigate((BaseCategory)e.Item);
         }
     }
 }
