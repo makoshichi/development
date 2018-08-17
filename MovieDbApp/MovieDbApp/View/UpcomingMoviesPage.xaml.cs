@@ -8,11 +8,11 @@ using MovieDbApp.ViewModel;
 namespace MovieDbApp.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class MoviesPage : ContentPage
+	public partial class UpcomingMoviesPage : ContentPage
 	{
         private UpcomingMoviesViewModel viewModel;
 
-		public MoviesPage()
+		public UpcomingMoviesPage()
 		{
 			InitializeComponent();
             viewModel = new UpcomingMoviesViewModel(new RestService());

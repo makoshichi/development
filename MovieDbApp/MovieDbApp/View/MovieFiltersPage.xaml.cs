@@ -21,7 +21,7 @@ namespace MovieDbApp.View
 
         private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            Navigation.PushAsync(new MoviesPage());
+            Navigation.PushAsync(new UpcomingMoviesPage());
         }
     }
 }

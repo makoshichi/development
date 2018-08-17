@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MovieDbApp.Service
+namespace MovieDbApp.Model
 {
-    public class UpcomingModel : IModel
+    public class UpcomingModel : IJsonModel
     {
         public List<UpcomingResult> results { get; set; }
         public int page { get; set; }
@@ -30,16 +30,16 @@ namespace MovieDbApp.Service
         public string overview { get; set; }
         public string release_date { get; set; }
 
-        public static explicit operator Movie(UpcomingResult dto)
+        public static explicit operator Movie(UpcomingResult upcoming)
         {
             var movie = new Movie
             {
-                Id = dto.id,
-                Title = dto.title,
-                PosterPath = $"{Constants.POSTER_BASE_PATH}{dto.poster_path}",
-                ReleaseDate = dto.release_date,
-                GenreIds = dto.genre_ids,
-                Overview = dto.overview
+                Id = upcoming.id,
+                Title = upcoming.title,
+                PosterPath = $"{Constants.POSTER_BASE_PATH}{upcoming.poster_path}",
+                ReleaseDate = upcoming.release_date,
+                GenreIds = upcoming.genre_ids,
+                Overview = upcoming.overview
             };
 
             return movie;
