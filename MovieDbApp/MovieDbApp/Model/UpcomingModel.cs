@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MovieDbApp.Service
 {
-    public class UpcomingModel
+    public class UpcomingModel : IModel
     {
         public List<UpcomingResult> results { get; set; }
         public int page { get; set; }

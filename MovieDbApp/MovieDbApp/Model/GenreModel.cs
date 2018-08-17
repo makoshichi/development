@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MovieDbApp.Service
 {
-    public class GenreModel
+    public class GenreModel : IModel
     {
         public List<GenreResult> genres;
     }

@@ -11,14 +11,20 @@ namespace MovieDbApp.ViewModel
 {
     public class UpcomingMoviesViewModel
     {
-        private int page = 1;
+        private int page;
+        private IRestService service;
 
         public string Title { get { return "Upcoming Movies"; } }
+
+        public UpcomingMoviesViewModel(IRestService service)
+        {
+            page = 1;
+            this.service = service;
+        }
 
         public async Task<List<Movie>> GetUpcomingMovies()
         {
             List<Movie> movies = new List<Movie>();
-            RestService service = new RestService();
             var upcoming = await service.GetUpcomingMovies(page);
             var allGenres = await service.GetGenres();
 

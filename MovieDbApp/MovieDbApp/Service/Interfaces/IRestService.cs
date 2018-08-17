@@ -8,6 +8,7 @@ namespace MovieDbApp.Service
 {
     public interface IRestService
     {
-        //Task<List<Movie>> GetUpcoming
+        Task<UpcomingModel> GetUpcomingMovies(int page);
+        Task<List<Genre>> GetGenres();
     }
 }
