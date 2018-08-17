@@ -1,4 +1,4 @@
-﻿using MovieDbApp.SortingConfig;
+﻿using MovieDbApp.MoviesSorting;
 using MovieDbApp.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -12,18 +12,18 @@ using Xamarin.Forms.Xaml;
 namespace MovieDbApp.View
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class SortingConfigPage : ContentPage
+	public partial class MoviesSortingPage : ContentPage
 	{
-		public SortingConfigPage()
+		public MoviesSortingPage()
 		{
 			InitializeComponent();
-            BindingContext = new SortingConfigViewModel(Navigation);
+            BindingContext = new ViewModel.MoviesSortingPage(Navigation);
             listView.ItemTapped += ListView_ItemTapped;
 		}
 
         private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            ((SortingConfigViewModel)BindingContext).Navigate((BaseCategory)e.Item);
+            ((ViewModel.MoviesSortingPage)BindingContext).Navigate((BaseCategory)e.Item);
         }
     }
 }

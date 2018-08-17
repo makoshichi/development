@@ -13,8 +13,8 @@
     <Compile Update="View\UpcomingMoviesPage.xaml.cs">
       <DependentUpon>UpcomingMoviesPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\SortingConfigPage.xaml.cs">
-      <DependentUpon>SortingConfigPage.xaml</DependentUpon>
+    <Compile Update="View\MoviesSortingPage.xaml.cs">
+      <DependentUpon>MoviesSortingPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -34,7 +34,7 @@
     <EmbeddedResource Update="View\UpcomingMoviesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="View\SortingConfigPage.xaml">
+    <EmbeddedResource Update="View\MoviesSortingPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

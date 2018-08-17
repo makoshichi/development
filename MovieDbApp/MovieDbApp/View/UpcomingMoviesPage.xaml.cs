@@ -19,6 +19,7 @@ namespace MovieDbApp.View
             listView.ItemTapped += ListView_ItemTapped;
 		}
 
+        // Not my best work in display here
         protected async override void OnAppearing()
         {
             base.OnAppearing();

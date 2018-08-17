@@ -14,7 +14,7 @@ namespace MovieDbApp.View
             {
                 Title = "Movies",
                 IconSource = "contacts.png", // File not found
-                TargetType = typeof(SortingConfigPage)
+                TargetType = typeof(MoviesSortingPage)
             });
             masterPageItems.Add(new MasterPageItem
             {

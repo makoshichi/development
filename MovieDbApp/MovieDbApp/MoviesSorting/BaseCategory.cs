@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MovieDbApp.SortingConfig
+namespace MovieDbApp.MoviesSorting
 {
     public abstract class BaseCategory
     {

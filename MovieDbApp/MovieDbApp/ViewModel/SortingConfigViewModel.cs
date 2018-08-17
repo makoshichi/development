@@ -1,17 +1,17 @@
-﻿using MovieDbApp.SortingConfig;
+﻿using MovieDbApp.MoviesSorting;
 using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
 
 namespace MovieDbApp.ViewModel
 {
-    public class SortingConfigViewModel
+    public class MoviesSortingPage
     {
         private INavigation navigation;
 
         public List<BaseCategory> Categories { get; private set; }
 
-        public SortingConfigViewModel(INavigation navigation)
+        public MoviesSortingPage(INavigation navigation)
         {
             this.navigation = navigation;
             CreateCategories();

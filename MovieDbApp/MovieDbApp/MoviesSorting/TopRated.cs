@@ -1,7 +1,7 @@
 ﻿using MovieDbApp.View;
 using System;
 
-namespace MovieDbApp.SortingConfig
+namespace MovieDbApp.MoviesSorting
 {
     public class TopRated : BaseCategory
     {
