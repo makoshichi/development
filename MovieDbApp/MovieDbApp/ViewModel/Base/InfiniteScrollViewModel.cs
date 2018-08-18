@@ -38,11 +38,10 @@ namespace MovieDbApp.ViewModel
 
         public async Task<bool> LoadMoreMovies(Movie e)
         {
-
             if (e.Position < loadStartIndex)
                 return true;
 
-            loadStartIndex = 1 + Movies.Count;
+            loadStartIndex = scrollingThreshold + Movies.Count;
             page++;
             IsBusy = true;
             bool resultOk = await LoadMovies();

@@ -29,7 +29,7 @@
                                 <Label Text="{Binding Title}"
                                        TextColor="MidnightBlue"
                                        FontSize="Medium"/>
-                                <!--<Image Source="{Binding PosterPath}" HorizontalOptions="Start" />-->
+                                <Image Source="{Binding PosterPath}" HorizontalOptions="Start" />
                                 <Label Text="{Binding ReleaseDate}" 
                                        TextColor="DimGray"
                                        FontSize="Micro"/>
