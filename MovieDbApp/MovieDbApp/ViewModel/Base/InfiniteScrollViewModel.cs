@@ -4,18 +4,33 @@ using MovieDbApp.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MovieDbApp.ViewModel
 {
-    public abstract class InfiniteScrollViewModel
+    public abstract class InfiniteScrollViewModel : INotifyPropertyChanged
     {
-        protected readonly int scrollingThreshold = 5;
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected readonly int scrollingThreshold = 1;
         protected int loadStartIndex;
         protected int page;
         protected int totalResults;
         protected int totalPages;
+        protected bool _isBusy;
+
+        public bool IsBusy
+        {
+            get { return _isBusy; }
+            set
+            {
+
+                _isBusy = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsBusy)));
+            }
+        }
 
         public ObservableCollection<Movie> Movies { get; protected set; }
 
@@ -27,12 +42,13 @@ namespace MovieDbApp.ViewModel
             if (e.Position < loadStartIndex)
                 return true;
 
-            loadStartIndex = scrollingThreshold + Movies.Count;
+            loadStartIndex = 1 + Movies.Count;
             page++;
+            IsBusy = true;
+            bool resultOk = await LoadMovies();
+            IsBusy = false;
 
-            // Loading Popup (signaled task) -> do it the old-fashioned way, then try async/await
-
-            return await LoadMovies();
+            return resultOk;
         }
 
         protected abstract void ConvertToMovieList(IJsonModel model, List<Genre> allGenres);

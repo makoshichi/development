@@ -4,6 +4,7 @@ using MovieDbApp.Model;
 using MovieDbApp.Service;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Threading.Tasks;
 
 namespace MovieDbApp.ViewModel
@@ -14,7 +15,7 @@ namespace MovieDbApp.ViewModel
 
         public string Title { get { return "Upcoming Movies"; } }
 
-        public UpcomingMoviesViewModel(IRestService service)
+        public UpcomingMoviesViewModel(IRestService service) : base()
         {
             loadStartIndex = scrollingThreshold;
             page = 1;
@@ -24,11 +25,16 @@ namespace MovieDbApp.ViewModel
 
         public override async Task<bool> LoadMovies()
         {
+            IsBusy = true;
             var upcoming = await service.GetUpcomingMovies(page);
             var allGenres = await service.GetGenres();
+            IsBusy = false;
 
             if (upcoming == null)
+            {
+                
                 return false;
+            }
 
             ConvertToMovieList(upcoming, allGenres);
             return true;
