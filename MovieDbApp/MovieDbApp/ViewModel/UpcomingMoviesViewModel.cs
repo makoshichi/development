@@ -12,7 +12,7 @@ namespace MovieDbApp.ViewModel
     // implement an abstract ViewModelBase to make InfiniteScroll generic
     public class UpcomingMoviesViewModel//: INotifyPropertyChanged
     {
-        private readonly int scrollingThreshold = 15;
+        private readonly int scrollingThreshold = 10;
         private int loadStartIndex;
         private int totalResults;
         private int totalPages;
