@@ -9,7 +9,7 @@ namespace MovieDbApp.ViewModel
     {
         private INavigation navigation;
 
-        public List<BaseCategory> Categories { get; private set; }
+        public List<ISortingCategory> Categories { get; private set; }
 
         public MovieSortingViewModel(INavigation navigation)
         {
@@ -17,7 +17,7 @@ namespace MovieDbApp.ViewModel
             CreateCategories();
         }
 
-        public void Navigate(BaseCategory category)
+        public void Navigate(ISortingCategory category)
         {
             var page = Activator.CreateInstance(category.PageType);
             navigation.PushAsync((Page)page);
@@ -25,7 +25,7 @@ namespace MovieDbApp.ViewModel
 
         private void CreateCategories()
         {
-            Categories = new List<BaseCategory>()
+            Categories = new List<ISortingCategory>()
             {
                 new UpcomingMovies(),
                 new TopRated()

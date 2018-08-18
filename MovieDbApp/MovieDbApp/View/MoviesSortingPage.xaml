@@ -8,7 +8,9 @@
             <ListView x:Name="listView" ItemsSource="{Binding Categories}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding DisplayName}"/>
+                        <TextCell 
+                            Text="{Binding DisplayName}"
+                            TextColor="MidnightBlue"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
