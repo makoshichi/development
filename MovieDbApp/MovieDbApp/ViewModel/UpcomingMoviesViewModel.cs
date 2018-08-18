@@ -7,6 +7,9 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System;
+using Xamarin.Forms;
+using System.IO;
+using System.Net.Http;
 
 namespace MovieDbApp.ViewModel
 {
@@ -26,6 +29,7 @@ namespace MovieDbApp.ViewModel
 
         public override async Task<bool> LoadMovies()
         {
+
             IsBusy = true;
             var upcoming = await service.GetUpcomingMovies(page);
             var allGenres = await service.GetGenres();
@@ -57,5 +61,31 @@ namespace MovieDbApp.ViewModel
                 Movies.Add(movie);
             }
         }
+
+        //TEST
+        //public class AsyncImageService
+        //{
+        //    private bool isLoading;
+
+        //    public async Task<ImageSource> LoadImage(string imageUrl, ImageSource target)
+        //    {
+        //        Stream stream;
+        //        ImageSource imageSource = null;
+        //        if (!isLoading)
+        //        {
+        //            isLoading = true;
+        //            if (!string.IsNullOrEmpty(imageUrl))
+        //            {
+        //                HttpClient client = new HttpClient();
+        //                var uri = new Uri(imageUrl);
+        //                stream = await client.GetStreamAsync(uri);
+        //                imageSource = ImageSource.FromStream(() => stream);
+        //            }
+        //        }
+        //        isLoading = false;
+
+        //        return imageSource;
+        //    }
+        //}
     }
 }
