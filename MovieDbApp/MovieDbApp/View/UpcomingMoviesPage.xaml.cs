@@ -33,6 +33,7 @@ namespace MovieDbApp.View
         private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             Navigation.PushAsync(new MovieDetailsPage((Movie)e.Item));
+            listView.SelectedItem = null;
         }
 
         private async void ListView_ItemAppearing(object sender, ItemVisibilityEventArgs e)

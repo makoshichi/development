@@ -19,6 +19,7 @@ namespace MovieDbApp.View
         private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             ((MovieSortingViewModel)BindingContext).Navigate((ISortingCategory)e.Item);
+            listView.SelectedItem = null;
         }
     }
 }

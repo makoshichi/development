@@ -1,4 +1,5 @@
 ﻿using MovieDbApp.Entities;
+using System;
 using System.Collections.Generic;
 
 namespace MovieDbApp.Model
@@ -35,7 +36,8 @@ namespace MovieDbApp.Model
                 Id = upcoming.id,
                 Title = upcoming.title,
                 PosterPath = $"{Constants.POSTER_BASE_PATH}{upcoming.poster_path}",
-                ReleaseDate = upcoming.release_date,
+                //ReleaseDate = DateTime.Parse(upcoming.release_date),
+                ReleaseDate = DateTime.Parse(upcoming.release_date).ToString("MMM d, yyyy"),
                 GenreIds = upcoming.genre_ids,
                 Overview = upcoming.overview
             };

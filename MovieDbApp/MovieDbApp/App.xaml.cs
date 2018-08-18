@@ -1,4 +1,5 @@
 using MovieDbApp.View;
+using System.Globalization;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,7 +10,8 @@ namespace MovieDbApp
 	{
 		public App ()
 		{
-			InitializeComponent();
+            CultureInfo.CurrentCulture = CultureInfo.CreateSpecificCulture("en-US");
+            InitializeComponent();
 			MainPage = new MainPage();
 		}
 
