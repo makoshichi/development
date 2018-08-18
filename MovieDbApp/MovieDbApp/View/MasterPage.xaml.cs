@@ -13,13 +13,13 @@ namespace MovieDbApp.View
             masterPageItems.Add(new MasterPageItem
             {
                 Title = "Movies",
-                IconSource = "contacts.png", // File not found
+                IconSource = "clapperboard.png",
                 TargetType = typeof(MoviesSortingPage)
             });
             masterPageItems.Add(new MasterPageItem
             {
                 Title = "TV",
-                IconSource = "todo.png", // File not found
+                IconSource = "tv.png",
                 TargetType = typeof(PageNotFound)
             });
 

@@ -14,7 +14,7 @@ namespace MovieDbApp.ViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected readonly int scrollingThreshold = 1;
+        protected readonly int scrollingThreshold = 10;
         protected int loadStartIndex;
         protected int page;
         protected int totalResults;
@@ -38,7 +38,7 @@ namespace MovieDbApp.ViewModel
 
         public async Task<bool> LoadMoreMovies(Movie e)
         {
-            if (e.Position < loadStartIndex)
+            if (e.Position < loadStartIndex) // This induces a bug. I don't have the willpower to fix it right now, but it only happens if the user is actively trying to break the scrolling
                 return true;
 
             loadStartIndex = scrollingThreshold + Movies.Count;
