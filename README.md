@@ -1,29 +1,4 @@
-# README #
+- No 3rd party libraries
+- No special instructions
 
-This README would normally document whatever steps are necessary to get your application up and running.
-
-### What is this repository for? ###
-
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+- There's a catch in this app though: The behavior for loading poster images is pretty erratic in my old Galaxy Ace, but it works fine on the emulator. Unfortunately I'm unable to test it in a different phone right now.
