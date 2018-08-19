@@ -4,10 +4,10 @@
 				  xmlns:local="clr-namespace:MovieDbApp.View;assembly=MovieDbApp"
 				  x:Class="MovieDbApp.View.MainPage">
     <MasterDetailPage.Master>
-        <local:MasterPage x:Name="masterPage" />
+        <local:MasterPage x:Name="masterPage" BackgroundColor="#F9F9F9"/>
     </MasterDetailPage.Master>
     <MasterDetailPage.Detail>
-        <NavigationPage>
+        <NavigationPage BarBackgroundColor="#01D277">
             <x:Arguments>
                 <local:StartPage />
             </x:Arguments>

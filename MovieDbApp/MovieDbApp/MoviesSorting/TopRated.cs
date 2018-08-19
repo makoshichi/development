@@ -3,10 +3,10 @@ using System;
 
 namespace MovieDbApp.MoviesSorting
 {
-    public class TopRated : BaseCategory
+    public class TopRated : ISortingCategory
     {
-        public override string DisplayName => "Top Rated";
+        public string DisplayName => "Top Rated";
 
-        public override Type PageType => typeof(PageNotFound);
+        public Type PageType => typeof(PageNotFound);
     }
 }

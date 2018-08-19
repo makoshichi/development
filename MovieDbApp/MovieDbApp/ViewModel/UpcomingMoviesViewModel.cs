@@ -6,65 +6,41 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using System;
+using Xamarin.Forms;
+using System.IO;
+using System.Net.Http;
 
 namespace MovieDbApp.ViewModel
 {
-    // implement an abstract ViewModelBase to make InfiniteScroll generic
-    public class UpcomingMoviesViewModel//: INotifyPropertyChanged
+    public class UpcomingMoviesViewModel : InfiniteScrollViewModel
     {
-        private readonly int scrollingThreshold = 15;
-        private int loadStartIndex;
-        private int totalResults;
-        private int totalPages;
-        private int page;
+        public override string Title => "Upcoming Movies"; 
 
-        public ObservableCollection<Movie> Movies { get; private set; }
+        public UpcomingMoviesViewModel(IRestService service) : base(service) { }
 
-        private IRestService service;
-
-        //public event PropertyChangedEventHandler PropertyChanged;
-
-        public string Title { get { return "Upcoming Movies"; } }
-
-        public UpcomingMoviesViewModel(IRestService service)
+        public override async Task<bool> LoadMovies()
         {
-            loadStartIndex = scrollingThreshold;
-            page = 1;
-            Movies = new ObservableCollection<Movie>();
-            this.service = service;
-        }
 
-        public async Task<bool> LoadUpcomingMovies()
-        {
+            IsBusy = true;
             var upcoming = await service.GetUpcomingMovies(page);
             var allGenres = await service.GetGenres();
+            IsBusy = false;
 
             if (upcoming == null)
+            {
+                
                 return false;
+            }
 
             ConvertToMovieList(upcoming, allGenres);
             return true;
         }
 
-        public async Task<bool> LoadMoreMovies(Movie e)
+        // I couldn't generalize it further
+        protected override void ConvertToMovieList(IJsonModel model, List<Genre> allGenres)
         {
-
-            if (e.Position != loadStartIndex)
-                return true;
-
-            loadStartIndex = scrollingThreshold + Movies.Count;
-            page++;
-
-            // Add stop condition when all items have been loaded
-
-            // Loading Popup (signaled task) -> do it the old-fashioned way, then try async/await
-
-            return await LoadUpcomingMovies();
-        }
-
-        // Maybe this belongs somewhere else
-        private void ConvertToMovieList(UpcomingModel upcoming, List<Genre> allGenres) // I needed to reference Model from ViewModel here for infinite scrolling purposes
-        {
+            var upcoming = (UpcomingModel)model;
             totalPages = upcoming.total_pages;
             totalResults = upcoming.total_results;
             int totalPagesInResponse = upcoming.results.Count;
@@ -73,16 +49,35 @@ namespace MovieDbApp.ViewModel
             {
                 var movie = (Movie)upcoming.results[i];
                 movie.DisplayGenre = GenreProcessor.ConvertToDisplayGenre(movie.GenreIds, allGenres); // Converts GenreIds[] to UI-friendly string 
-                movie.Position = page == 1 ? i : i  + totalPagesInResponse * (page - 1); // Position used in infinite scrolling
+                movie.Position = page == 1 ? i : i + totalPagesInResponse * (page - 1); // Position used in infinite scrolling
                 Movies.Add(movie);
             }
-
-            //foreach (var result in upcoming.results)
-            //{
-            //    var movie = (Movie)result;
-            //    movie.DisplayGenre = GenreProcessor.ConvertToDisplayGenre(movie.GenreIds, allGenres); // Converts GenreIds[] to UI-friendly string
-            //    Movies.Add(movie);
-            //}
         }
+
+        //TEST
+        //public class AsyncImageService
+        //{
+        //    private bool isLoading;
+
+        //    public async Task<ImageSource> LoadImage(string imageUrl, ImageSource target)
+        //    {
+        //        Stream stream;
+        //        ImageSource imageSource = null;
+        //        if (!isLoading)
+        //        {
+        //            isLoading = true;
+        //            if (!string.IsNullOrEmpty(imageUrl))
+        //            {
+        //                HttpClient client = new HttpClient();
+        //                var uri = new Uri(imageUrl);
+        //                stream = await client.GetStreamAsync(uri);
+        //                imageSource = ImageSource.FromStream(() => stream);
+        //            }
+        //        }
+        //        isLoading = false;
+
+        //        return imageSource;
+        //    }
+        //}
     }
 }
