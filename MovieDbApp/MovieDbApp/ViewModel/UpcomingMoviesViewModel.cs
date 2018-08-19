@@ -15,17 +15,9 @@ namespace MovieDbApp.ViewModel
 {
     public class UpcomingMoviesViewModel : InfiniteScrollViewModel
     {
-        private IRestService service;
+        public override string Title => "Upcoming Movies"; 
 
-        public string Title { get { return "Upcoming Movies"; } }
-
-        public UpcomingMoviesViewModel(IRestService service) : base()
-        {
-            loadStartIndex = scrollingThreshold;
-            page = 1;
-            Movies = new ObservableCollection<Movie>();
-            this.service = service;
-        }
+        public UpcomingMoviesViewModel(IRestService service) : base(service) { }
 
         public override async Task<bool> LoadMovies()
         {
