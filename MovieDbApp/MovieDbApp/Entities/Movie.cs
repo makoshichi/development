@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace MovieDbApp.Entities
@@ -11,9 +11,26 @@ namespace MovieDbApp.Entities
         public string Title { get; set; }
         public string PosterPath { get; set; }
         public string Overview { get; set; }
-        //public DateTime ReleaseDate { get; set; }
         public List<int> GenreIds { get; set; }
         public string DisplayGenre { get; set; }
         public string ReleaseDate { get; set; }
+
+        public string ConvertToDisplayGenre(List<Genre> allGenres)
+        {
+            var sb = new StringBuilder();
+
+            for (int i = 0; i < GenreIds.Count; i++)
+            {
+                var genreName = allGenres.First(x => x.Id == GenreIds[i]).Name;
+
+                if (i == GenreIds.Count - 1)
+                    sb.Append(genreName);
+                else
+                    sb.Append($"{genreName}, ");
+
+            }
+
+            return sb.ToString();
+        }
     }
 }
