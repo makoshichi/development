@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace MovieDbApp.View
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class StartPage : ContentPage
+	public partial class AboutPage : ContentPage
 	{
-		public StartPage ()
+		public AboutPage ()
 		{
 			InitializeComponent ();
 		}

@@ -1,5 +1,6 @@
 ﻿using MovieDbApp.Entities;
 using MovieDbApp.Model;
+using MovieDbApp.Model;
 using MovieDbApp.Service;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,17 +12,21 @@ namespace MovieDbApp.ViewModel
 {
     public abstract class InfiniteScrollViewModel : INotifyPropertyChanged
     {
-        protected IRestService service;
-        public abstract string Title { get; }
+
         public event PropertyChangedEventHandler PropertyChanged;
+
+        protected readonly int scrollingThreshold = 10;
+
+        protected IRestService service;
         protected int loadStartIndex;
         protected int page;
         protected int totalResults;
         protected int totalPages;
         protected bool _isBusy;
-
         private int scrollingCycle = 1;
         private int position;
+        
+        public abstract string Title { get; }
 
         public InfiniteScrollViewModel(IRestService service)
         {
@@ -46,7 +51,7 @@ namespace MovieDbApp.ViewModel
 
         public async Task<bool> LoadMoreMovies(Movie e)
         {
-            position = e.Position;
+           position = e.Position;
             Debug.WriteLine($"Position: {position}e.Position: {e.Position}; loadStartIndex: {loadStartIndex}");
 
             if (position < loadStartIndex) // The framework seems to be inducing a bug. I don't have the willpower to fix it right now, but it happens after around 250 entries of scrolling.

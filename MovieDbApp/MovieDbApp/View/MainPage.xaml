@@ -9,7 +9,7 @@
     <MasterDetailPage.Detail>
         <NavigationPage BarBackgroundColor="#01D277">
             <x:Arguments>
-                <local:StartPage />
+                <local:MoviesSortingPage />
             </x:Arguments>
         </NavigationPage>
     </MasterDetailPage.Detail>

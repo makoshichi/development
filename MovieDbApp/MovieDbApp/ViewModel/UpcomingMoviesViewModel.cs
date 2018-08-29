@@ -1,15 +1,8 @@
 ﻿using MovieDbApp.Entities;
-using MovieDbApp.Helper;
 using MovieDbApp.Model;
 using MovieDbApp.Service;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Threading.Tasks;
-using System;
-using Xamarin.Forms;
-using System.IO;
-using System.Net.Http;
 
 namespace MovieDbApp.ViewModel
 {
@@ -28,16 +21,12 @@ namespace MovieDbApp.ViewModel
             IsBusy = false;
 
             if (upcoming == null)
-            {
-                
                 return false;
-            }
 
             ConvertToMovieList(upcoming, allGenres);
             return true;
         }
 
-        // I couldn't generalize it further
         protected override void ConvertToMovieList(IJsonModel model, List<Genre> allGenres)
         {
             var upcoming = (UpcomingModel)model;
@@ -48,36 +37,10 @@ namespace MovieDbApp.ViewModel
             for (int i = 0; i < totalPagesInResponse; i++)
             {
                 var movie = (Movie)upcoming.results[i];
-                movie.DisplayGenre = GenreProcessor.ConvertToDisplayGenre(movie.GenreIds, allGenres); // Converts GenreIds[] to UI-friendly string 
+                movie.DisplayGenre = movie.ConvertToDisplayGenre(allGenres); // Converts GenreIds[] to UI-friendly string 
                 movie.Position = page == 1 ? i : i + totalPagesInResponse * (page - 1); // Position used in infinite scrolling
                 Movies.Add(movie);
             }
         }
-
-        //TEST
-        //public class AsyncImageService
-        //{
-        //    private bool isLoading;
-
-        //    public async Task<ImageSource> LoadImage(string imageUrl, ImageSource target)
-        //    {
-        //        Stream stream;
-        //        ImageSource imageSource = null;
-        //        if (!isLoading)
-        //        {
-        //            isLoading = true;
-        //            if (!string.IsNullOrEmpty(imageUrl))
-        //            {
-        //                HttpClient client = new HttpClient();
-        //                var uri = new Uri(imageUrl);
-        //                stream = await client.GetStreamAsync(uri);
-        //                imageSource = ImageSource.FromStream(() => stream);
-        //            }
-        //        }
-        //        isLoading = false;
-
-        //        return imageSource;
-        //    }
-        //}
     }
 }
