@@ -3,7 +3,7 @@ using System;
 
 namespace MovieDbApp.MoviesSorting
 {
-    public class UpcomingMovies : ISortingCategory
+    public class UpcomingMovies : IMovieMenu
     {
         public string DisplayName => "Upcoming";
 

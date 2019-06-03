@@ -1,10 +1,9 @@
-﻿using MovieDbApp.Entities;
-using MovieDbApp.Model;
+﻿using MovieDbApp.Data;
 using System.Collections.Generic;
 
-namespace MovieDbApp.Service
+namespace MovieDbApp.Data
 {
-    public class GenreModel : IJsonModel
+    public class GenreResponse
     {
         public List<GenreResult> genres;
     }

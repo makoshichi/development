@@ -1,4 +1,4 @@
-﻿using MovieDbApp.Entities;
+﻿using MovieDbApp.Data;
 
 namespace MovieDbApp.ViewModel
 {

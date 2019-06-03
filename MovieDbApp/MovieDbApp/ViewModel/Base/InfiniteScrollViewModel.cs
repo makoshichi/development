@@ -1,5 +1,5 @@
-﻿using MovieDbApp.Entities;
-using MovieDbApp.Model;
+﻿using MovieDbApp.Data;
+using MovieDbApp.Helper;
 using MovieDbApp.Service;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -42,7 +42,21 @@ namespace MovieDbApp.ViewModel
 
         public ObservableCollection<Movie> Movies { get; protected set; }
 
-        public abstract Task<bool> LoadMovies();
+        public abstract Task<MovieResponse> GetRemoteData();
+
+        public async Task<bool> LoadMovies()
+        {
+            IsBusy = true;
+            var jsonResult = await GetRemoteData();
+            var allGenres = await service.GetGenres();
+            IsBusy = false;
+
+            if (jsonResult == null)
+                return false;
+
+            ConvertToMovieList(jsonResult, allGenres);
+            return true;
+        }
 
         public async Task<bool> LoadMoreMovies(Movie e)
         {
@@ -62,6 +76,20 @@ namespace MovieDbApp.ViewModel
             return resultOk;
         }
 
-        protected abstract void ConvertToMovieList(IJsonModel model, List<Genre> allGenres);
+        protected void ConvertToMovieList(MovieResponse response, List<Genre> allGenres)
+        {
+            totalPages = response.total_pages;
+            totalResults = response.total_results;
+            int totalPagesInResponse = response.results.Count;
+
+            for (int i = 0; i < totalPagesInResponse; i++)
+            {
+                var movie = (Movie)response.results[i];
+                movie.DisplayGenre = GenreProcessor.ConvertToDisplayGenre(movie.GenreIds, allGenres); // Converts GenreIds[] to UI-friendly string 
+                movie.Position = page == 1 ? i : i + totalPagesInResponse * (page - 1); // Position used in infinite scrolling
+                Movies.Add(movie);
+            }
+        }
+
     }
 }

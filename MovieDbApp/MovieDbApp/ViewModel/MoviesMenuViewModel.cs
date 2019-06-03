@@ -5,19 +5,19 @@ using Xamarin.Forms;
 
 namespace MovieDbApp.ViewModel
 {
-    public class MovieSortingViewModel
+    public class MoviesMenuViewModel
     {
         private INavigation navigation;
 
-        public List<ISortingCategory> Categories { get; private set; }
+        public List<IMovieMenu> Categories { get; private set; }
 
-        public MovieSortingViewModel(INavigation navigation)
+        public MoviesMenuViewModel(INavigation navigation)
         {
             this.navigation = navigation;
             CreateCategories();
         }
 
-        public void Navigate(ISortingCategory category)
+        public void Navigate(IMovieMenu category)
         {
             var page = Activator.CreateInstance(category.PageType);
             navigation.PushAsync((Page)page);
@@ -25,10 +25,11 @@ namespace MovieDbApp.ViewModel
 
         private void CreateCategories()
         {
-            Categories = new List<ISortingCategory>()
+            Categories = new List<IMovieMenu>()
             {
                 new UpcomingMovies(),
-                new TopRated()
+                new TopRatedMovies(),
+                new PopularMovies()
             };
         }
     }

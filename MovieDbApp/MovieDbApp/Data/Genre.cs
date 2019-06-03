@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MovieDbApp.Entities
+namespace MovieDbApp.Data
 {
     public class Genre
     {

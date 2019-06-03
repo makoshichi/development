@@ -3,10 +3,10 @@ using System;
 
 namespace MovieDbApp.MoviesSorting
 {
-    public class TopRated : ISortingCategory
+    public class TopRatedMovies : IMovieMenu
     {
         public string DisplayName => "Top Rated";
 
-        public Type PageType => typeof(PageNotFound);
+        public Type PageType => typeof(TopRatedPage);
     }
 }

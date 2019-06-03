@@ -7,18 +7,18 @@ using Xamarin.Forms.Xaml;
 namespace MovieDbApp.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class MoviesSortingPage : ContentPage
+	public partial class MoviesMenuPage : ContentPage
 	{
-		public MoviesSortingPage()
+		public MoviesMenuPage()
 		{
 			InitializeComponent();
-            BindingContext = new MovieSortingViewModel(Navigation);
+            BindingContext = new MoviesMenuViewModel(Navigation);
             listView.ItemTapped += ListView_ItemTapped;
 		}
 
         private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            ((MovieSortingViewModel)BindingContext).Navigate((ISortingCategory)e.Item);
+            ((MoviesMenuViewModel)BindingContext).Navigate((IMovieMenu)e.Item);
             listView.SelectedItem = null;
         }
     }

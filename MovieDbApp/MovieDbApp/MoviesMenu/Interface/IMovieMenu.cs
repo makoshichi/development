@@ -2,7 +2,7 @@
 
 namespace MovieDbApp.MoviesSorting
 {
-    public interface ISortingCategory
+    public interface IMovieMenu
     {
         string DisplayName { get; }
         Type PageType { get; }

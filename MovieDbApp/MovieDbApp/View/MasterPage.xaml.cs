@@ -14,7 +14,7 @@ namespace MovieDbApp.View
             {
                 Title = "Movies",
                 IconSource = "clapperboard.png",
-                TargetType = typeof(MoviesSortingPage)
+                TargetType = typeof(MoviesMenuPage)
             });
             masterPageItems.Add(new MasterPageItem
             {

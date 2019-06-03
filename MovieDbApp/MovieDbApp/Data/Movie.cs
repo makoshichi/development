@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MovieDbApp.Entities
+namespace MovieDbApp.Data
 {
     public class Movie
     {
@@ -11,7 +11,6 @@ namespace MovieDbApp.Entities
         public string Title { get; set; }
         public string PosterPath { get; set; }
         public string Overview { get; set; }
-        //public DateTime ReleaseDate { get; set; }
         public List<int> GenreIds { get; set; }
         public string DisplayGenre { get; set; }
         public string ReleaseDate { get; set; }
