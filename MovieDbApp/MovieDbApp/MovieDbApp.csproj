@@ -11,14 +11,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="View\AboutPage.xaml.cs">
-      <DependentUpon>AboutPage.xaml</DependentUpon>
-    </Compile>
     <Compile Update="View\UpcomingMoviesPage.xaml.cs">
       <DependentUpon>UpcomingMoviesPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\MoviesSortingPage.xaml.cs">
-      <DependentUpon>MoviesSortingPage.xaml</DependentUpon>
+    <Compile Update="View\MoviesMenuPage.xaml.cs">
+      <DependentUpon>MoviesMenuPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -32,7 +29,10 @@
     <EmbeddedResource Update="View\PageNotFound.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="View\AboutPage.xaml">
+    <EmbeddedResource Update="View\PopularMoviesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\StartPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="View\TopRatedPage.xaml">
@@ -41,7 +41,7 @@
     <EmbeddedResource Update="View\UpcomingMoviesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="View\MoviesSortingPage.xaml">
+    <EmbeddedResource Update="View\MoviesMenuPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

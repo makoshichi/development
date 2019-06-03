@@ -1,4 +1,4 @@
-﻿using MovieDbApp.Entities;
+﻿using MovieDbApp.Data;
 using MovieDbApp.ViewModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

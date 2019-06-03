@@ -2,7 +2,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using MovieDbApp.ViewModel;
-using MovieDbApp.Entities;
+using MovieDbApp.Data;
 
 namespace MovieDbApp.View
 {
@@ -38,7 +38,6 @@ namespace MovieDbApp.View
 
         private async void ListView_ItemAppearing(object sender, ItemVisibilityEventArgs e)
         {
-            
             var resultOk = await ((UpcomingMoviesViewModel)BindingContext).LoadMoreMovies((Movie)e.Item);
             if (!resultOk)
                 await DisplayAlert("Communication Error", "An error has occurred while trying to communicate with the REST API", "OK");

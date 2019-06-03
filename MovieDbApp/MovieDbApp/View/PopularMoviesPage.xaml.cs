@@ -1,11 +1,6 @@
 ﻿using MovieDbApp.Data;
 using MovieDbApp.Service;
 using MovieDbApp.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -13,14 +8,14 @@ using Xamarin.Forms.Xaml;
 namespace MovieDbApp.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TopRatedPage : ContentPage
+    public partial class PopularMoviesPage : ContentPage
     {
-        private TopRatedViewModel viewModel;
+        private PopularMoviesViewModel viewModel;
 
-        public TopRatedPage()
+        public PopularMoviesPage()
         {
             InitializeComponent();
-            viewModel = new TopRatedViewModel(new MovieService());
+            viewModel = new PopularMoviesViewModel(new MovieService());
             BindingContext = viewModel;
             listView.ItemTapped += ListView_ItemTapped;
             listView.ItemAppearing += ListView_ItemAppearing;
@@ -43,7 +38,7 @@ namespace MovieDbApp.View
 
         private async void ListView_ItemAppearing(object sender, ItemVisibilityEventArgs e)
         {
-            var resultOk = await ((TopRatedViewModel)BindingContext).LoadMoreMovies((Movie)e.Item);
+            var resultOk = await ((PopularMoviesViewModel)BindingContext).LoadMoreMovies((Movie)e.Item);
             if (!resultOk)
                 await DisplayAlert("Communication Error", "An error has occurred while trying to communicate with the REST API", "OK");
         }

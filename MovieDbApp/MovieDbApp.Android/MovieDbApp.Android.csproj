@@ -130,8 +130,5 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\clapperboard.png" />
   </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\about.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
